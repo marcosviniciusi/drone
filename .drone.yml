@@ -33,6 +33,8 @@ steps:
     image: alpine:latest
     commands:
       - echo "This is a fast pipeline with success."
+depends_on:
+  - test
 ---
 kind: pipeline
 type: docker
