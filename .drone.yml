@@ -6,7 +6,7 @@ steps:
     image: alpine:latest
     commands:
       - echo "build step taking 10s."
-      - sleep 10
+      - sleep 30
 ---
 kind: pipeline
 type: docker
@@ -15,15 +15,10 @@ steps:
   - name: dummy-echo
     image: alpine:latest
     commands:
-      - echo "sleep 10s and fail."
-  - name: sleep
-    image: alpine:latest
-    commands:
-      - sleep 5
-  - name: fail
-    image: alpine:latest
-    commands:
-      - exit 1
+      - echo "build step taking 10s."
+      - sleep 30
+depends_on:
+  - build
 ---
 kind: pipeline
 type: docker
@@ -32,7 +27,8 @@ steps:
   - name: dummy-echo
     image: alpine:latest
     commands:
-      - echo "This is a fast pipeline with success."
+      - echo "build step taking 10s."
+      - sleep 30
 depends_on:
   - test
 ---
@@ -43,9 +39,10 @@ steps:
   - name: dummy-echo
     image: alpine:latest
     commands:
-      - echo "This is a dummy fast step."
+      - echo "build step taking 10s."
+      - sleep 30
 depends_on:
-  - build
+  - tools
 ---
 kind: pipeline
 type: docker
@@ -54,6 +51,7 @@ steps:
   - name: dummy-echo
     image: alpine:latest
     commands:
-      - echo "This is a dummy fast step."
+      - echo "build step taking 10s."
+      - sleep 30
 depends_on:
-  - build
+  - deploy
