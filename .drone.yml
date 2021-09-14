@@ -17,8 +17,6 @@ steps:
     commands:
       - echo "build step taking 10s."
       - sleep 30
-depends_on:
-  - build
 ---
 kind: pipeline
 type: docker
@@ -29,8 +27,6 @@ steps:
     commands:
       - echo "build step taking 10s."
       - sleep 30
-depends_on:
-  - test
 ---
 kind: pipeline
 type: docker
@@ -41,8 +37,6 @@ steps:
     commands:
       - echo "build step taking 10s."
       - sleep 30
-depends_on:
-  - tools
 ---
 kind: pipeline
 type: docker
@@ -53,5 +47,3 @@ steps:
     commands:
       - echo "build step taking 10s."
       - sleep 30
-depends_on:
-  - deploy
