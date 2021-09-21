@@ -30,7 +30,6 @@ type: exec
 name: perf
 steps:
   - name: dummy-echo
-    image: alpine:latest
     commands:
       - echo "build step taking 10s."
       - sleep 30
