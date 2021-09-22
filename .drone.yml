@@ -1,3 +1,6 @@
+global-variables:
+  test_command: 'echo teste as command'
+
 kind: pipeline
 type: exec
 name: build
@@ -11,6 +14,7 @@ steps:
   - name: read-vars
     commands:
       - source .env
+      - *test_command
       - echo $VAR1
       - echo $VAR2
       - echo $VAR3
