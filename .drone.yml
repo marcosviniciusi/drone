@@ -5,20 +5,20 @@ kind: pipeline
 type: exec
 name: build
 steps:
-  - name: dummy-echo
-    commands:
-      - echo VAR1=`cat var-files | grep -i duck` > .env
-      - echo VAR2=`cat var-files | grep -i ^o` >> .env
-      - echo VAR3=`cat var-files | grep -i do` >> .env
-      - echo VAR4=`cat var-files | grep -i cat | cut -f1 -d " "` >> .env
+  #- name: dummy-echo
+  #  commands:
+  #    - echo VAR1=`cat var-files | grep -i duck` > .env
+  #    - echo VAR2=`cat var-files | grep -i ^o` >> .env
+  #    - echo VAR3=`cat var-files | grep -i do` >> .env
+  #    - echo VAR4=`cat var-files | grep -i cat | cut -f1 -d " "` >> .env
   - name: read-vars
     commands:
-      - source .env
+   #   - source .env
       - *test_command
-      - echo $VAR1
-      - echo $VAR2
-      - echo $VAR3
-      - echo $VAR4
+   #   - echo $VAR1
+   #   - echo $VAR2
+   #   - echo $VAR3
+   #   - echo $VAR4
 ---
 kind: pipeline
 type: exec
