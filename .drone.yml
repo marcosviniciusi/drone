@@ -4,14 +4,20 @@ name: test
 steps:
   - name: dummy-echo
     commands:
-      - echo "build step taking 10s. on Branch master"
+      - echo "build step taking 10s. on Branch feature/test"
       - sleep 30
+    when:
+      branch:
+      - main
 ---
 kind: pipeline
 type: exec
 name: perf
 steps:
-  - name: dummy-echo
+  - name: dummy-echo pipeline exec
     commands:
-      - echo "build step taking 10s. on Branch master"
+      - echo "build step taking 10s. on Branch feature/test"
       - sleep 30
+branch:
+  include:
+    - main
