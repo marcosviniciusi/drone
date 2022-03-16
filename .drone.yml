@@ -8,7 +8,7 @@ steps:
       - sleep 30
     when:
       branch:
-      - main
+      - master
 ---
 kind: pipeline
 type: exec
@@ -20,4 +20,4 @@ steps:
       - sleep 30
 branch:
   include:
-    - main
+    - master
