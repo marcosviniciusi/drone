@@ -1,17 +1,17 @@
 kind: pipeline
-type: docker
+type: exec
 name: test
 steps:
   - name: dummy-echo
     commands:
-      - echo "build step taking 10s."
+      - echo "build step taking 10s. on Branch master"
       - sleep 30
 ---
 kind: pipeline
-type: docker
+type: exec
 name: perf
 steps:
   - name: dummy-echo
     commands:
-      - echo "build step taking 10s."
+      - echo "build step taking 10s. on Branch master"
       - sleep 30
