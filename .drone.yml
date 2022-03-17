@@ -6,9 +6,9 @@ steps:
     commands:
       - echo "build step taking 10s. on Branch feature/test-case"
       - sleep 10
-    when:
-      branch:
-      - main
+branch:
+  include:
+    - main
 ---
 kind: pipeline
 type: exec
