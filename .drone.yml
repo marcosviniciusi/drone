@@ -8,7 +8,9 @@ steps:
       - sleep 10
     when:
       branch:
-      - main
+      - master
+      event:
+      - push
 ---
 kind: pipeline
 type: exec
@@ -20,4 +22,4 @@ steps:
       - sleep 10
 branch:
   include:
-    - main
+    - master
