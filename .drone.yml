@@ -8,7 +8,7 @@ steps:
       - sleep 10
     when:
       branch:
-      - master
+      - dev
       event:
       - push
 ---
@@ -22,4 +22,4 @@ steps:
       - sleep 10
 branch:
   include:
-    - master
+    - dev
