@@ -1,25 +1,10 @@
 kind: pipeline
-type: exec
-name: test
+type: docker
+name: default
+
 steps:
-  - name: dummy-echo
-    commands:
-      - echo "build step taking 10s. on Branch feature/test1"
-      - sleep 10
-    when:
-      branch:
-      - master
-      event:
-      - push
----
-kind: pipeline
-type: exec
-name: perf
-steps:
-  - name: dummy-echo pipeline exec
-    commands:
-      - echo "build step taking 10s. on Branch feature/test1"
-      - sleep 10
-branch:
-  include:
-    - master
+- name: display go version
+  image: golang
+  pull: if-not-exists
+  commands:
+  - go version
