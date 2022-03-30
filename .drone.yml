@@ -8,5 +8,5 @@ steps:
   pull: if-not-exists
   commands:
   - go version
-  - sleep 350
+  - sleep 310
 ####
