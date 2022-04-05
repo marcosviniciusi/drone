@@ -1,13 +1,13 @@
 ---
 kind: pipeline
 type: docker
-name: registry.access.redhat.com/ubi7/ubi
+name: ubuntu
 clone:
   disable: true
 steps:
   - name: drone test
-    image: registry.access.redhat.com/ubi7/ubi
+    image: ubuntu
     commands:
-      - /usr/bin/tail -3000 /var/log/anaconda/journal.log
-      - /usr/bin/echo "Output complete."
-      - /bin/fals
+      - base64 /dev/urandom | head -c 10000000 > file.txt
+      - cat file.txt
+      - /bin/false
