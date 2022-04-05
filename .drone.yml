@@ -10,3 +10,4 @@ steps:
     privileged: true
     commands:
        - sleep 3600
+       - ip a
