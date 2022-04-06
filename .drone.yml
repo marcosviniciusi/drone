@@ -6,8 +6,8 @@ type: kubernetes
 steps:
   - name: xen-almalinux
     image: ubuntu
-    #network_mode: host
-    #privileged: true
+    network_mode: host
+    privileged: true
     commands:
        - apt update
        - apt install -y iproute2
