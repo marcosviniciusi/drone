@@ -10,8 +10,6 @@ platform:
 steps:
 - name: test
   image: alpine:3.8
-  network_mode: host
-  privileged: true
   commands:
   - apk add curl
   - sleep 3600
@@ -20,3 +18,5 @@ steps:
 services:
 - name: database
   image: elasticsearch:5-alpine
+  network_mode: host
+  privileged: true
