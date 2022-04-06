@@ -9,14 +9,10 @@ platform:
 
 steps:
 - name: test
-  image: alpine:3.8
-  commands:
-  - apk add curl
-  - sleep 3600
-  - curl http://localhost:9200
-
-services:
-- name: database
-  image: elasticsearch:5-alpine
+  image: ubuntu:latest
   network_mode: host
   privileged: true
+  commands:
+  - apt update
+  - apt install ssh-client
+  - ssh harness@192.168.10.253
