@@ -9,24 +9,6 @@ platform:
 
 steps:
 - name: test
-  image: ubuntu:latest
-  #network_mode: host
-  #privileged: true
-  commands:
-  - apt update
-  - apt install curl -y
-  - curl https://grafana.vinicima.com -v --ipv4
----
-kind: pipeline
-type: kubernetes
-name: default
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: test
   image: alpine:3.8
   commands:
   - apk add curl
