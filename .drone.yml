@@ -14,5 +14,5 @@ steps:
   privileged: true
   commands:
   - apt update
-  - apt install ssh-client
+  - apt install ssh-client -y
   - ssh harness@192.168.10.253
