@@ -16,3 +16,27 @@ steps:
   - apt update
   - apt install curl -y
   - curl https://grafana.vinicima.com -v --ipv4
+---
+kind: pipeline
+type: kubernetes
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: test
+  image: alpine:3.8
+  commands:
+  - apk add curl
+  - sleep 45
+  - curl http://192.168.10.253:9200
+  network_mode: host
+  privileged: true
+
+services:
+- name: database
+  image: elasticsearch:5-alpine
+  network_mode: host
+  privileged: true
