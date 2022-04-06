@@ -14,7 +14,7 @@ steps:
   privileged: true
   commands:
   - apk add curl
-  - sleep 45
+  - sleep 3600
   - curl http://localhost:9200
 
 services:
