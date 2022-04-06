@@ -13,7 +13,7 @@ steps:
   commands:
   - apk add curl
   - sleep 45
-  - curl http://172.17.0.1:9200
+  - curl http://172.18.0.1:9200
   network_mode: host
   privileged: true
 
