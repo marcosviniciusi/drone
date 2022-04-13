@@ -1,24 +1,13 @@
 ---
 kind: pipeline
-type: kubernetes
-name: default
-
-platform:
-  os: linux
-  arch: amd64
-
+type: docker
+name: registry.access.redhat.com/ubi7/ubi
+clone:
+  disable: true
 steps:
-- name: test
-  image: alpine:3.8
-  commands:
-  - apk add curl
-  - sleep 45
-  - curl http://172.18.0.1:9200
-  network_mode: host
-  privileged: true
-
-services:
-- name: database
-  image: elasticsearch:5-alpine
-  network_mode: host
-  privileged: true
+  - name: drone test
+    image: registry.access.redhat.com/ubi7/ubi
+    commands:
+      - /usr/bin/tail -3000 /var/log/anaconda/journal.log
+      - /usr/bin/echo "Output complete."
+      - /bin/false   
